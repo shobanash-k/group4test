@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TNPSC GROUP 4 – தமிழ் தேர்வு பயிற்சி</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <button type="button" class="brand-btn" id="brand-home-btn" aria-label="முகப்புப் பக்கத்திற்குச் செல்லவும்">
+        <img src="assets/icons/emblem.svg" alt="சின்னம்" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">TNPSC GROUP 4</span>
+          <span class="brand-subtitle">தமிழ் தேர்வு பயிற்சி</span>
+        </div>
+      </button>
+
+      <nav class="header-nav" aria-label="முதன்மை வழிசெலுத்தல்">
+        <button type="button" class="nav-link active" data-nav="home">முகப்பு</button>
+        <button type="button" class="nav-link" data-nav="tamil">பொதுத்தமிழ்</button>
+        <button type="button" class="nav-link" data-nav="maths">கணிதம்</button>
+        <button type="button" class="nav-link" data-nav="gk">பொது அறிவு</button>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-soft hidden" id="header-resume-btn">
+          தொடரவும்
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" id="main-content">
+    <!-- ==================== VIEW 1: HOMEPAGE DASHBOARD ==================== -->
+    <section class="view active" id="view-home" aria-label="முகப்புப் பக்கம்">
+      <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="hero-badge">TNPSC தொகுதி 4 • முழுமையான ஆஃப்லைன் பயிற்சித் தளம்</span>
+            <h1 class="hero-title">TNPSC GROUP 4 – தமிழ் தேர்வு பயிற்சி</h1>
+            <p class="hero-welcome">
+              தமிழ்நாடு அரசுப் பணியாளர் தேர்வாணையம் (TNPSC Group 4) தேர்விற்குத் தயாராகும் மாணவர்களுக்கான
+              முழுமையான தமிழ் வழிப் பயிற்சித் தளம். 3,000 தரமான கேள்விகள், 30 முழு மாதிரித் தேர்வுகள்,
+              உடனடி விடை சரிபார்ப்பு மற்றும் விரிவான தமிழ் விளக்கங்களுடன் இன்றே உங்கள் வெற்றிக்கான பயிற்சியைத் தொடங்குங்கள்!
+            </p>
+            <div class="hero-actions" id="hero-resume-slot"></div>
+          </div>
+
+          <div class="hero-progress-panel">
+            <div class="overall-ring-wrap">
+              <svg class="progress-ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+                <circle class="ring-fill" id="home-overall-ring" cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="ring-center">
+                <span class="ring-value" id="home-overall-percent">0%</span>
+                <span class="ring-label">முன்னேற்றம்</span>
+              </div>
+            </div>
+            <div class="overall-caption">
+              <span id="home-overall-summary">30 தேர்வுகளில் 0 முடிந்தது</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Key Dashboard Metrics -->
+        <div class="stats-grid" aria-label="பயிற்சிப் புள்ளிவிவரங்கள்">
+          <div class="stat-card">
+            <span class="stat-label">மொத்த கேள்விகள்</span>
+            <strong class="stat-value">3,000</strong>
+            <span class="stat-sub">3 பாடங்கள் • 100% தமிழ்</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">மொத்த தேர்வுகள்</span>
+            <strong class="stat-value">30</strong>
+            <span class="stat-sub">தேர்விற்கு 100 கேள்விகள்</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">முடித்த தேர்வுகள்</span>
+            <strong class="stat-value" id="stat-completed-tests">0 / 30</strong>
+            <span class="stat-sub" id="stat-inprogress-sub">தொடரும் தேர்வுகள்: 0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">சராசரி மதிப்பெண்</span>
+            <strong class="stat-value" id="stat-avg-score">0%</strong>
+            <span class="stat-sub" id="stat-answered-total">மொத்த பதில்கள்: 0</span>
+          </div>
+          <div class="stat-card stat-card-accent">
+            <span class="stat-label">ஒட்டுமொத்த முன்னேற்றம்</span>
+            <strong class="stat-value" id="stat-overall-progress">0%</strong>
+            <div class="mini-progress">
+              <div class="mini-progress-fill" id="stat-overall-bar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Subject Cards -->
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">பாடவாரியான பயிற்சித் தேர்வுகள்</h2>
+            <p class="section-subtitle">நீங்கள் பயிற்சி செய்ய விரும்பும் பாடத்தைத் தேர்ந்தெடுக்கவும்</p>
+          </div>
+        </div>
+
+        <div class="subjects-grid" id="subjects-grid">
+          <!-- Card 1: General Tamil -->
+          <article class="subject-card" data-subject="tamil">
+            <div class="subject-card-top">
+              <img src="assets/icons/tamil-icon.svg" alt="பொதுத்தமிழ்" class="subject-icon" />
+              <span class="subject-tag">பாடம் 01</span>
+            </div>
+            <h3 class="subject-title">பொதுத்தமிழ்</h3>
+            <p class="subject-desc">
+              தமிழ் இலக்கணம், திருக்குறள், சங்க இலக்கியம், காப்பியங்கள், சிற்றிலக்கியங்கள், தமிழ் அறிஞர்கள் மற்றும் நூல்கள்.
+            </p>
+            <div class="subject-meta-pills">
+              <span class="meta-pill">1,000 கேள்விகள்</span>
+              <span class="meta-pill">10 பயிற்சித் தேர்வுகள்</span>
+            </div>
+            <div class="subject-progress-block">
+              <div class="progress-row">
+                <span id="card-tamil-completed">முடித்தவை: 0 / 10</span>
+                <span id="card-tamil-avg">சராசரி: 0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="card-tamil-bar" style="width: 0%"></div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block subject-start-btn" data-open-subject="tamil">
+              பயிற்சியைத் தொடங்கு →
+            </button>
+          </article>
+
+          <!-- Card 2: Maths & Aptitude -->
+          <article class="subject-card" data-subject="maths">
+            <div class="subject-card-top">
+              <img src="assets/icons/maths-icon.svg" alt="கணிதம் மற்றும் திறனறிவு" class="subject-icon" />
+              <span class="subject-tag">பாடம் 02</span>
+            </div>
+            <h3 class="subject-title">கணிதம் மற்றும் திறனறிவு</h3>
+            <p class="subject-desc">
+              எண் அமைப்பு, சதவீதம், தனிவட்டி, கூட்டு வட்டி, இலாபம்-நட்டம், விகிதம், LCM/HCF, நேரம்-வேலை, அளவியல், தர்க்கத் திறன்.
+            </p>
+            <div class="subject-meta-pills">
+              <span class="meta-pill">1,000 கேள்விகள்</span>
+              <span class="meta-pill">10 பயிற்சித் தேர்வுகள்</span>
+            </div>
+            <div class="subject-progress-block">
+              <div class="progress-row">
+                <span id="card-maths-completed">முடித்தவை: 0 / 10</span>
+                <span id="card-maths-avg">சராசரி: 0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="card-maths-bar" style="width: 0%"></div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block subject-start-btn" data-open-subject="maths">
+              பயிற்சியைத் தொடங்கு →
+            </button>
+          </article>
+
+          <!-- Card 3: General Knowledge -->
+          <article class="subject-card" data-subject="gk">
+            <div class="subject-card-top">
+              <img src="assets/icons/gk-icon.svg" alt="பொது அறிவு" class="subject-icon" />
+              <span class="subject-tag">பாடம் 03</span>
+            </div>
+            <h3 class="subject-title">பொது அறிவு</h3>
+            <p class="subject-desc">
+              இந்திய &amp; தமிழ்நாடு வரலாறு, அரசியலமைப்பு, புவியியல், இயற்பியல், வேதியியல், உயிரியல், பொருளாதாரம் மற்றும் கணினி அறிவியல்.
+            </p>
+            <div class="subject-meta-pills">
+              <span class="meta-pill">1,000 கேள்விகள்</span>
+              <span class="meta-pill">10 பயிற்சித் தேர்வுகள்</span>
+            </div>
+            <div class="subject-progress-block">
+              <div class="progress-row">
+                <span id="card-gk-completed">முடித்தவை: 0 / 10</span>
+                <span id="card-gk-avg">சராசரி: 0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="card-gk-bar" style="width: 0%"></div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block subject-start-btn" data-open-subject="gk">
+              பயிற்சியைத் தொடங்கு →
+            </button>
+          </article>
+        </div>
+
+        <!-- Search & Filter Explorer -->
+        <section class="explorer-section" aria-label="தேர்வு தேடல் மற்றும் வடிகட்டி">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">தேர்வு தேடல் மற்றும் வடிகட்டி</h2>
+              <p class="section-subtitle">பாடம், தலைப்பு, கடினத்தன்மை அல்லது நிலை அடிப்படையில் அனைத்து 30 தேர்வுகளையும் வடிகட்டவும்</p>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="home-filter-reset">வடிகட்டியை மீட்டமை</button>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-field filter-search">
+              <label for="home-search-input">தேடல்</label>
+              <input type="search" id="home-search-input" placeholder="எ.கா: திருக்குறள், சதவீதம், அரசியலமைப்பு..." />
+            </div>
+            <div class="filter-field">
+              <label for="home-filter-subject">பாடம்</label>
+              <select id="home-filter-subject">
+                <option value="all">அனைத்துப் பாடங்கள்</option>
+                <option value="tamil">பொதுத்தமிழ்</option>
+                <option value="maths">கணிதம் மற்றும் திறனறிவு</option>
+                <option value="gk">பொது அறிவு</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="home-filter-topic">தலைப்பு</label>
+              <select id="home-filter-topic">
+                <option value="all">அனைத்துத் தலைப்புகள்</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="home-filter-difficulty">கடினத்தன்மை</label>
+              <select id="home-filter-difficulty">
+                <option value="all">அனைத்தும்</option>
+                <option value="easy">எளிது</option>
+                <option value="medium">நடுத்தரம்</option>
+                <option value="hard">கடினம்</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="home-filter-status">தேர்வு நிலை</label>
+              <select id="home-filter-status">
+                <option value="all">அனைத்துத் தேர்வுகள்</option>
+                <option value="completed">முடித்த தேர்வுகள்</option>
+                <option value="unattempted">முடிக்காத தேர்வுகள்</option>
+                <option value="inprogress">தொடரும் தேர்வுகள்</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-results-meta" id="home-filter-count"></div>
+          <div class="tests-grid" id="home-filtered-tests"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: SUBJECT-WISE TEST SELECTION ==================== -->
+    <section class="view" id="view-subject" aria-label="பாடவாரியான தேர்வுப் பட்டியல்">
+      <div class="container">
+        <div class="breadcrumb-row">
+          <button type="button" class="btn btn-outline btn-sm" id="subject-back-home">← முகப்புப் பக்கம்</button>
+        </div>
+
+        <div class="subject-banner" id="subject-banner">
+          <div class="subject-banner-left">
+            <img src="assets/icons/tamil-icon.svg" alt="" class="subject-banner-icon" id="subject-view-icon" />
+            <div>
+              <h1 class="subject-view-title" id="subject-view-title">பொதுத்தமிழ்</h1>
+              <p class="subject-view-desc" id="subject-view-desc"></p>
+            </div>
+          </div>
+          <div class="subject-banner-stats">
+            <div class="banner-stat">
+              <span class="banner-stat-label">முடித்த தேர்வுகள்</span>
+              <strong id="subject-view-completed">0 / 10</strong>
+            </div>
+            <div class="banner-stat">
+              <span class="banner-stat-label">சராசரி மதிப்பெண்</span>
+              <strong id="subject-view-avg">0%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="subject-filter-strip">
+          <div class="status-pills" id="subject-status-pills">
+            <button type="button" class="pill-btn active" data-status="all">அனைத்தும் (10)</button>
+            <button type="button" class="pill-btn" data-status="completed">முடித்த தேர்வுகள்</button>
+            <button type="button" class="pill-btn" data-status="unattempted">முடிக்காத தேர்வுகள்</button>
+            <button type="button" class="pill-btn" data-status="inprogress">தொடரும் தேர்வுகள்</button>
+          </div>
+          <div class="subject-inline-filters">
+            <select id="subject-topic-filter" aria-label="தலைப்பு வடிகட்டி">
+              <option value="all">அனைத்துத் தலைப்புகள்</option>
+            </select>
+            <select id="subject-difficulty-filter" aria-label="கடினத்தன்மை வடிகட்டி">
+              <option value="all">அனைத்து நிலைகள்</option>
+              <option value="easy">எளிது</option>
+              <option value="medium">நடுத்தரம்</option>
+              <option value="hard">கடினம்</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tests-grid" id="subject-tests-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: QUIZ / QUESTION INTERFACE ==================== -->
+    <section class="view" id="view-quiz" aria-label="தேர்வுப் பக்கம்">
+      <div class="quiz-topbar">
+        <div class="container quiz-topbar-inner">
+          <div class="quiz-title-group">
+            <button type="button" class="btn btn-outline btn-xs" id="quiz-exit-btn">← தேர்வுகள்</button>
+            <div>
+              <span class="quiz-subject-label" id="quiz-subject-name">பொதுத்தமிழ்</span>
+              <h2 class="quiz-test-label" id="quiz-test-title">தேர்வு 01 – கேள்விகள் 1–100</h2>
+            </div>
+          </div>
+
+          <div class="quiz-live-metrics">
+            <div class="metric-chip">
+              <span class="metric-chip-label">கேள்வி</span>
+              <strong id="quiz-q-counter">1 / 100</strong>
+            </div>
+            <div class="metric-chip metric-chip-score">
+              <span class="metric-chip-label">மதிப்பெண்</span>
+              <strong id="quiz-score-counter">0</strong>
+            </div>
+            <div class="metric-chip">
+              <span class="metric-chip-label">பதிலளித்தவை</span>
+              <strong id="quiz-answered-counter">0 / 100</strong>
+            </div>
+          </div>
+
+          <div class="quiz-top-actions">
+            <button type="button" class="btn btn-soft btn-xs mobile-nav-toggle" id="open-nav-drawer-btn">
+              கேள்வி எண் (100)
+            </button>
+            <button type="button" class="btn btn-outline btn-xs" id="quiz-restart-btn">மீண்டும் தொடங்கு</button>
+            <button type="button" class="btn btn-primary btn-xs" id="quiz-finish-btn">தேர்வை முடி</button>
+          </div>
+        </div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="container quiz-layout">
+        <!-- Left: Active Question Area -->
+        <div class="quiz-main">
+          <article class="question-card" id="question-card">
+            <div class="question-card-header">
+              <span class="q-number-badge" id="q-number-badge">கேள்வி 1 / 100</span>
+              <div class="q-tags">
+                <span class="q-topic-tag" id="q-topic-tag">தலைப்பு</span>
+                <span class="q-diff-tag" id="q-diff-tag">எளிது</span>
+              </div>
+            </div>
+
+            <div class="question-text" id="question-text">கேள்வி ஏற்றப்படுகிறது...</div>
+
+            <div class="options-list" id="options-list" role="radiogroup" aria-label="விடைத் தேர்வுகள்">
+              <!-- 4 option buttons rendered dynamically -->
+            </div>
+
+            <!-- Instant Validation Feedback & Explanation Box -->
+            <div class="feedback-panel hidden" id="feedback-panel" aria-live="polite">
+              <div class="feedback-header" id="feedback-header">
+                <span class="feedback-icon" id="feedback-icon"></span>
+                <strong class="feedback-status" id="feedback-status"></strong>
+              </div>
+              <div class="feedback-correct-answer" id="feedback-correct-answer"></div>
+              <div class="feedback-explanation-box">
+                <div class="explanation-label">விளக்கம்:</div>
+                <p class="explanation-text" id="feedback-explanation"></p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Navigation Footer Controls -->
+          <div class="quiz-footer-controls">
+            <button type="button" class="btn btn-outline" id="btn-prev-question">← முந்தைய கேள்வி</button>
+            <span class="quiz-footer-hint" id="quiz-footer-hint">விடையைத் தேர்ந்தெடுக்கவும்</span>
+            <button type="button" class="btn btn-primary" id="btn-next-question">அடுத்த கேள்வி →</button>
+          </div>
+        </div>
+
+        <!-- Right: Question Navigator Panel (Desktop sticky / Mobile drawer) -->
+        <div class="nav-drawer-backdrop" id="nav-drawer-backdrop"></div>
+        <aside class="quiz-navigator" id="quiz-navigator" aria-label="கேள்வி வழிசெலுத்தல் பலகை">
+          <div class="navigator-header">
+            <div>
+              <h3>கேள்விப் பட்டியல்</h3>
+              <p class="navigator-sub">நேரடியாக எந்தக் கேள்விக்கும் செல்லவும்</p>
+            </div>
+            <button type="button" class="drawer-close-btn" id="close-nav-drawer-btn" aria-label="மூடு">✕</button>
+          </div>
+
+          <div class="navigator-summary">
+            <div class="nav-sum-item nav-sum-correct">
+              <span>சரி</span>
+              <strong id="nav-count-correct">0</strong>
+            </div>
+            <div class="nav-sum-item nav-sum-wrong">
+              <span>தவறு</span>
+              <strong id="nav-count-wrong">0</strong>
+            </div>
+            <div class="nav-sum-item nav-sum-remaining">
+              <span>மீதம்</span>
+              <strong id="nav-count-remaining">100</strong>
+            </div>
+          </div>
+
+          <div class="navigator-legend">
+            <span><i class="dot dot-correct"></i> சரியானவை</span>
+            <span><i class="dot dot-wrong"></i> தவறானவை</span>
+            <span><i class="dot dot-unattempted"></i> பதிலளிக்காதவை</span>
+            <span><i class="dot dot-current"></i> தற்போதையது</span>
+          </div>
+
+          <div class="navigator-grid" id="navigator-grid">
+            <!-- 100 numbered buttons rendered dynamically -->
+          </div>
+
+          <div class="navigator-footer">
+            <button type="button" class="btn btn-primary btn-block" id="nav-finish-btn">தேர்வை முடித்து முடிவு காண்</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 4: RESULTS PAGE ==================== -->
+    <section class="view" id="view-results" aria-label="தேர்வு முடிவு">
+      <div class="container">
+        <div class="results-card">
+          <div class="results-header">
+            <span class="hero-badge" id="results-subject-badge">பொதுத்தமிழ் • தேர்வு 01</span>
+            <h1 class="results-title">TNPSC GROUP 4 – தேர்வு முடிவு</h1>
+            <p class="results-date" id="results-date"></p>
+          </div>
+
+          <div class="results-hero">
+            <div class="score-circle-wrap">
+              <svg class="score-ring" viewBox="0 0 160 160" aria-hidden="true">
+                <circle class="score-ring-bg" cx="80" cy="80" r="68"></circle>
+                <circle class="score-ring-fill" id="results-score-ring" cx="80" cy="80" r="68"></circle>
+              </svg>
+              <div class="score-circle-center">
+                <strong class="score-percent" id="results-percent">0%</strong>
+                <span class="score-fraction" id="results-fraction">0 / 100</span>
+              </div>
+            </div>
+            <div class="results-verdict">
+              <h2 id="results-grade-title">சிறப்பான முயற்சி!</h2>
+              <p id="results-grade-message"></p>
+            </div>
+          </div>
+
+          <div class="results-metrics-grid">
+            <div class="res-metric">
+              <span>மொத்த கேள்விகள்</span>
+              <strong id="res-total">100</strong>
+            </div>
+            <div class="res-metric">
+              <span>பதில் அளித்தவை</span>
+              <strong id="res-answered">0</strong>
+            </div>
+            <div class="res-metric res-metric-success">
+              <span>சரியான பதில்கள்</span>
+              <strong id="res-correct">0</strong>
+            </div>
+            <div class="res-metric res-metric-error">
+              <span>தவறான பதில்கள்</span>
+              <strong id="res-wrong">0</strong>
+            </div>
+            <div class="res-metric res-metric-primary">
+              <span>மொத்த மதிப்பெண்</span>
+              <strong id="res-score-text">0 / 100</strong>
+            </div>
+            <div class="res-metric res-metric-primary">
+              <span>சதவீதம்</span>
+              <strong id="res-percent-text">0%</strong>
+            </div>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="btn btn-primary" id="btn-review-all">விடைகளை மதிப்பாய்வு செய்</button>
+            <button type="button" class="btn btn-soft" id="btn-review-wrong">தவறான பதில்களை மட்டும் பார்</button>
+            <button type="button" class="btn btn-outline" id="btn-retake-test">மீண்டும் தேர்வு எழுது</button>
+            <button type="button" class="btn btn-outline" id="btn-results-home">முகப்புப் பக்கம்</button>
+          </div>
+        </div>
+
+        <!-- Topic-wise Performance Summary -->
+        <div class="topic-summary-card">
+          <h2 class="section-title">தலைப்பு வாரியான செயல்திறன்</h2>
+          <p class="section-subtitle">ஒவ்வொரு தலைப்பிலும் உங்கள் துல்லியத்தை அறிந்து பலவீனமான பகுதிகளில் கவனம் செலுத்துங்கள்</p>
+          <div class="topic-bars-list" id="results-topic-summary"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 5: ANSWER REVIEW SCREEN ==================== -->
+    <section class="view" id="view-review" aria-label="விடைகள் மதிப்பாய்வு">
+      <div class="container">
+        <div class="review-topbar">
+          <div>
+            <button type="button" class="btn btn-outline btn-sm" id="review-back-results">← தேர்வு முடிவிற்குத் திரும்பு</button>
+            <h1 class="review-title" id="review-title">விடைகளை மதிப்பாய்வு செய்</h1>
+            <p class="review-subtitle" id="review-subtitle"></p>
+          </div>
+          <div class="review-top-btns">
+            <button type="button" class="btn btn-outline btn-sm" id="review-go-home">முகப்புப் பக்கம்</button>
+          </div>
+        </div>
+
+        <div class="review-filters-card">
+          <div class="status-pills" id="review-status-pills">
+            <button type="button" class="pill-btn active" data-review-filter="all">அனைத்தும்</button>
+            <button type="button" class="pill-btn" data-review-filter="correct">சரியானவை</button>
+            <button type="button" class="pill-btn" data-review-filter="wrong">தவறானவை</button>
+            <button type="button" class="pill-btn" data-review-filter="unattempted">பதிலளிக்காதவை</button>
+          </div>
+          <div class="review-extra-filters">
+            <select id="review-topic-filter" aria-label="மதிப்பாய்வு தலைப்பு வடிகட்டி">
+              <option value="all">அனைத்துத் தலைப்புகள்</option>
+            </select>
+            <select id="review-difficulty-filter" aria-label="மதிப்பாய்வு கடினத்தன்மை வடிகட்டி">
+              <option value="all">அனைத்து நிலைகள்</option>
+              <option value="easy">எளிது</option>
+              <option value="medium">நடுத்தரம்</option>
+              <option value="hard">கடினம்</option>
+            </select>
+            <input type="search" id="review-search-input" placeholder="கேள்வியில் தேடு..." />
+          </div>
+        </div>
+
+        <div class="review-count-bar" id="review-count-bar"></div>
+        <div class="review-list" id="review-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>TNPSC GROUP 4 – தமிழ் தேர்வு பயிற்சி • 3,000 கேள்விகள் • 30 பயிற்சித் தேர்வுகள்</p>
+      <p class="footer-note">முழுமையாக ஆஃப்லைனில் செயல்படும் • உங்கள் முன்னேற்றம் உலாவியில் தானாகச் சேமிக்கப்படும்</p>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-backdrop hidden" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <h3 class="modal-title" id="modal-title">உறுதிப்படுத்தவும்</h3>
+      <p class="modal-message" id="modal-message"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" id="modal-cancel-btn">ரத்து செய்</button>
+        <button type="button" class="btn btn-primary" id="modal-confirm-btn">உறுதி செய்</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay hidden" id="loading-overlay" aria-live="polite">
+    <div class="spinner"></div>
+    <p>தேர்வுக் கேள்விகள் ஏற்றப்படுகின்றன...</p>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Offline Data Manifest & Application Scripts -->
+  <script src="data/manifest.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/questions-loader.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
