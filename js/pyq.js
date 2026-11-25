@@ -215,22 +215,24 @@
   /* ==================== PRACTICE MODAL / VIEWER ==================== */
   function openPracticeModal(paperFilter) {
     const data = window.TNPSC_PYQ_DATA;
-    if (!data || !data.sampleQuestions) return;
+    if (!data) return;
 
-    let questions = data.sampleQuestions;
+    let questions = [];
     let title = 'முந்தைய தேர்வு அசல் வினாக்கள் பயிற்சி';
 
-    if (paperFilter) {
-      // Filter questions matching this paper code or section
-      const matched = data.sampleQuestions.filter(
-        (q) => q.examCode === paperFilter.code || (paperFilter.sectionKey === 'tamil' && q.subjectKey === 'tamil')
-      );
-      if (matched.length > 0) {
-        questions = matched;
-        title = `${paperFilter.examName} (${paperFilter.code}) – மாதிரி வினாக்கள்`;
-      } else {
-        title = `${paperFilter.examName} – மாதிரி வினாக்கள்`;
-      }
+    if (paperFilter && data.questionsByPaper && data.questionsByPaper[paperFilter.paperNo]) {
+      questions = data.questionsByPaper[paperFilter.paperNo];
+      title = `${paperFilter.examName} (${paperFilter.code}) – அசல் தேர்வு வினாக்கள்`;
+    } else if (paperFilter) {
+      title = `${paperFilter.examName} (${paperFilter.code}) – அசல் தேர்வு வினாக்கள்`;
+      questions = (data.allQuestions || []).filter((q) => q.paperNo === paperFilter.paperNo);
+    } else {
+      questions = data.allQuestions || [];
+      title = 'முந்தைய தேர்வு அசல் வினாக்கள் – அனைத்துத் தேர்வு மாதிரித் தொகுப்பு';
+    }
+
+    if (!questions || questions.length === 0) {
+      questions = data.allQuestions || [];
     }
 
     PyqState.practiceQuestions = questions;
@@ -357,3 +359,4 @@
     init();
   }
 })(window);
+
