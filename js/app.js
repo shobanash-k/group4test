@@ -35,7 +35,8 @@
       const nav = btn.getAttribute('data-nav');
       const isActive =
         (viewName === 'home' && nav === 'home') ||
-        (viewName === 'subject' && nav === AppState.currentSubject);
+        (viewName === 'subject' && nav === AppState.currentSubject) ||
+        (viewName === 'pyq' && nav === 'pyq');
       btn.classList.toggle('active', isActive);
     });
 
@@ -443,6 +444,9 @@
         if (nav === 'home') {
           renderDashboard();
           showView('home');
+        } else if (nav === 'pyq') {
+          if (window.TNPSC_PYQ) window.TNPSC_PYQ.renderPaperCards();
+          showView('pyq');
         } else {
           openSubjectView(nav);
         }
@@ -455,11 +459,28 @@
       });
     });
 
+    document.querySelectorAll('[data-open-pyq]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        window.TNPSCStorage.clearActiveSession();
+        if (window.TNPSC_PYQ) window.TNPSC_PYQ.renderPaperCards();
+        showView('pyq');
+      });
+    });
+
     document.getElementById('subject-back-home').addEventListener('click', () => {
       window.TNPSCStorage.clearActiveSession();
       renderDashboard();
       showView('home');
     });
+
+    const pyqBackHome = document.getElementById('pyq-back-home');
+    if (pyqBackHome) {
+      pyqBackHome.addEventListener('click', () => {
+        window.TNPSCStorage.clearActiveSession();
+        renderDashboard();
+        showView('home');
+      });
+    }
 
     // Home Explorer filters
     document.getElementById('home-search-input').addEventListener('input', (e) => {

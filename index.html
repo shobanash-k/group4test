@@ -6,6 +6,7 @@
   <title>TNPSC GROUP 4 – தமிழ் தேர்வு பயிற்சி</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/pyq.css" />
 </head>
 <body>
   <!-- Top Navigation Header -->
@@ -24,6 +25,7 @@
         <button type="button" class="nav-link" data-nav="tamil">பொதுத்தமிழ்</button>
         <button type="button" class="nav-link" data-nav="maths">கணிதம்</button>
         <button type="button" class="nav-link" data-nav="gk">பொது அறிவு</button>
+        <button type="button" class="nav-link" data-nav="pyq">முந்தைய தேர்வு வினாக்கள்</button>
       </nav>
 
       <div class="header-actions">
@@ -192,6 +194,50 @@
             </button>
           </article>
         </div>
+
+        <!-- ==================== PREVIOUS EXAM QUESTIONS SECTION ==================== -->
+        <section class="pyq-home-banner" aria-label="முந்தைய தேர்வு வினாக்கள்">
+          <div class="pyq-banner-header">
+            <div class="pyq-banner-title-group">
+              <img src="assets/icons/emblem.svg" alt="முந்தைய தேர்வு வினாக்கள்" class="pyq-banner-icon" />
+              <div>
+                <h2 class="pyq-banner-title">முந்தைய தேர்வு வினாக்கள் (Previous Exam Questions)</h2>
+                <p class="pyq-banner-sub">
+                  TNPSC அதிகாரப்பூர்வ முந்தைய ஆண்டு அசல் வினாத்தாள்கள் (2012–2019) • 24 தேர்வுகள் • 2,480 கேள்விகள் • 100% அரசு விடைக்குறிப்புடன்
+                </p>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-open-pyq>
+              அனைத்து வினாத்தாள்களையும் காண்க →
+            </button>
+          </div>
+
+          <div class="pyq-banner-pills">
+            <span class="pyq-stat-pill">
+              <span>மொத்த வினாத்தாள்கள்:</span>
+              <strong id="pyq-stat-total-papers">24 தேர்வுகள்</strong>
+            </span>
+            <span class="pyq-stat-pill">
+              <span>மொத்த வினாக்கள்:</span>
+              <strong id="pyq-stat-total-questions">2,480</strong>
+            </span>
+            <span class="pyq-stat-pill">
+              <span>பொதுத்தமிழ்:</span>
+              <strong id="pyq-stat-tamil-questions">2,380</strong>
+            </span>
+            <span class="pyq-stat-pill">
+              <span>பொது அறிவு:</span>
+              <strong id="pyq-stat-gk-questions">75</strong>
+            </span>
+            <span class="pyq-stat-pill">
+              <span>கணிதம்:</span>
+              <strong id="pyq-stat-maths-questions">25</strong>
+            </span>
+            <span class="pyq-stat-pill" style="background: #DCFCE7; border-color: #86EFAC; color: #15803D;">
+              ✓ அதிகாரப்பூர்வ விடைக்குறிப்புடன்
+            </span>
+          </div>
+        </section>
 
         <!-- Search & Filter Explorer -->
         <section class="explorer-section" aria-label="தேர்வு தேடல் மற்றும் வடிகட்டி">
@@ -534,6 +580,71 @@
         <div class="review-list" id="review-list"></div>
       </div>
     </section>
+
+    <!-- ==================== VIEW 6: PREVIOUS EXAM QUESTIONS ==================== -->
+    <section class="view" id="view-pyq" aria-label="முந்தைய தேர்வு வினாக்கள்">
+      <div class="container">
+        <div class="breadcrumb-row">
+          <button type="button" class="btn btn-outline btn-sm" id="pyq-back-home">← முகப்புப் பக்கம்</button>
+        </div>
+
+        <!-- Hero Banner -->
+        <div class="pyq-hero-banner">
+          <div class="pyq-hero-head">
+            <img src="assets/icons/emblem.svg" alt="முந்தைய தேர்வு வினாக்கள்" class="pyq-hero-icon" />
+            <div>
+              <h1 class="pyq-hero-title">முந்தைய தேர்வு வினாக்கள் (Previous Exam Questions)</h1>
+              <p class="pyq-hero-desc">
+                தமிழ்நாடு அரசுப் பணியாளர் தேர்வாணையம் (TNPSC) நடத்திய முந்தைய ஆண்டு அசல் தேர்வு வினாத்தாள்கள், 
+                அதிகாரப்பூர்வ அரசு விடைக்குறிப்புகள் (Official Answer Keys) மற்றும் விரிவான பிரிவு வாரியான பகுப்பாய்வு.
+              </p>
+            </div>
+          </div>
+
+          <div class="pyq-stats-grid">
+            <div class="pyq-stat-card">
+              <span class="label">அசல் வினாத்தாள்கள்</span>
+              <strong class="val">24 தேர்வுகள்</strong>
+              <span class="sub">2012 முதல் 2019 வரை</span>
+            </div>
+            <div class="pyq-stat-card">
+              <span class="label">மொத்த கேள்விகள்</span>
+              <strong class="val">2,480</strong>
+              <span class="sub">அனைத்துப் பிரிவுகளும் அடங்கியது</span>
+            </div>
+            <div class="pyq-stat-card">
+              <span class="label">பொதுத்தமிழ் வினாக்கள்</span>
+              <strong class="val">2,380</strong>
+              <span class="sub">24 தேர்வு வினாத்தாள்கள்</span>
+            </div>
+            <div class="pyq-stat-card">
+              <span class="label">பொது அறிவு &amp; கணிதம்</span>
+              <strong class="val">100</strong>
+              <span class="sub">GK: 75 • கணிதம்: 25</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Strip -->
+        <div class="pyq-filter-strip">
+          <div class="pyq-section-tabs">
+            <button type="button" class="pyq-tab-btn active" data-pyq-section="all">அனைத்துப் பகுதிகள் (24)</button>
+            <button type="button" class="pyq-tab-btn" data-pyq-section="tamil">பொதுத்தமிழ் (2,380)</button>
+            <button type="button" class="pyq-tab-btn" data-pyq-section="gk">பொது அறிவு (75)</button>
+            <button type="button" class="pyq-tab-btn" data-pyq-section="maths">கணிதம் &amp; திறனறிவு (25)</button>
+          </div>
+
+          <div class="pyq-search-box">
+            <input type="search" id="pyq-search-input" placeholder="தேர்வின் பெயர், குறியீடு அல்லது ஆண்டு..." />
+            <button type="button" class="btn btn-outline btn-sm" id="pyq-filter-reset">மீட்டமை</button>
+            <button type="button" class="btn btn-primary btn-sm" id="pyq-launch-all-practice">மாதிரிப் பயிற்சி தொடங்கு</button>
+          </div>
+        </div>
+
+        <div class="filter-results-meta" id="pyq-filter-count">காட்டப்படும் வினாத்தாள்கள்: 24 / 24</div>
+        <div class="pyq-papers-grid" id="pyq-papers-grid"></div>
+      </div>
+    </section>
   </main>
 
   <!-- Site Footer -->
@@ -543,6 +654,42 @@
       <p class="footer-note">முழுமையாக ஆஃப்லைனில் செயல்படும் • உங்கள் முன்னேற்றம் உலாவியில் தானாகச் சேமிக்கப்படும்</p>
     </div>
   </footer>
+
+  <!-- Practice Modal for Previous Exam Questions -->
+  <div class="pyq-modal-backdrop hidden" id="pyq-practice-modal" role="dialog" aria-modal="true" aria-labelledby="pyq-practice-modal-title">
+    <div class="pyq-modal-container">
+      <div class="pyq-modal-header">
+        <h3 id="pyq-practice-modal-title">முந்தைய தேர்வு வினாக்கள் மாதிரிப் பயிற்சி</h3>
+        <button type="button" class="drawer-close-btn" id="pyq-modal-close-btn" aria-label="மூடு">✕</button>
+      </div>
+
+      <div class="pyq-modal-body">
+        <div class="pyq-practice-card-head">
+          <span class="q-number-badge" id="pyq-practice-counter">கேள்வி 1 / 12</span>
+          <div class="q-tags">
+            <span class="q-diff-tag" id="pyq-practice-subject">பொதுத்தமிழ்</span>
+            <span class="q-topic-tag" id="pyq-practice-exam">TNPSC Group 4</span>
+            <span class="topic-chip" id="pyq-practice-topic">இலக்கணம்</span>
+          </div>
+        </div>
+
+        <div class="pyq-practice-q-text" id="pyq-practice-text">கேள்வி ஏற்றப்படுகிறது...</div>
+
+        <div class="pyq-practice-options" id="pyq-practice-options">
+          <!-- 4 option buttons rendered dynamically -->
+        </div>
+
+        <!-- Instant Validation Feedback Box -->
+        <div class="pyq-feedback-panel hidden" id="pyq-practice-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="pyq-modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" id="pyq-prev-q-btn">← முந்தைய கேள்வி</button>
+        <span class="quiz-footer-hint">விடையைத் தேர்ந்தெடுத்து அதிகாரப்பூர்வ விடையைச் சரிபார்க்கவும்</span>
+        <button type="button" class="btn btn-primary btn-sm" id="pyq-next-q-btn">அடுத்த கேள்வி →</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Confirmation Modal -->
   <div class="modal-backdrop hidden" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -567,10 +714,12 @@
 
   <!-- Offline Data Manifest & Application Scripts -->
   <script src="data/manifest.js"></script>
+  <script src="data/pyq_manifest.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/questions-loader.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/results.js"></script>
+  <script src="js/pyq.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
