@@ -1,0 +1,278 @@
+{
+  "sourceFile": "C:\\\\Users\\\\Admin\\\\Downloads\\\\TNPSC_பொதுத்தமிழ்_previous_year_questions_with_answerskey_Free.pdf",
+  "fileSizeBytes": 97531813,
+  "fileSizeMB": "93.01 MB",
+  "totalPagesInPDF": 633,
+  "totalQuestionPapers": 24,
+  "advertisementPages": [
+    368,
+    633
+  ],
+  "totalQuestions": 2480,
+  "questionsBySection": {
+    "பொதுத்தமிழ் (General Tamil)": 2380,
+    "பொது அறிவு (General Knowledge / General Studies)": 75,
+    "கணிதம் மற்றும் திறனறிவு (Maths & Mental Ability / Aptitude)": 25
+  },
+  "papers": [
+    {
+      "paperNo": 1,
+      "examName": "TNPSC General Tamil Exam 2012",
+      "code": "GT112",
+      "pages": "1-24",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 2,
+      "examName": "TNPSC Group 2 General Tamil 2015",
+      "code": "G2T/15",
+      "pages": "25-48",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 3,
+      "examName": "TNPSC Group 4 General Tamil 2019",
+      "code": "JGT/19",
+      "pages": "49-72",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 4,
+      "examName": "TNPSC Group 2 General Tamil",
+      "code": "CCS2T",
+      "pages": "73-98",
+      "totalPages": 26,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 5,
+      "examName": "TNPSC Group 4 / VAO General Tamil 2017",
+      "code": "SGHGT17",
+      "pages": "99-122",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 6,
+      "examName": "TNPSC Group 4 General Tamil",
+      "code": "GRFT3",
+      "pages": "123-146",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 7,
+      "examName": "TNPSC Group 2A General Tamil 2017",
+      "code": "GR2AT/17",
+      "pages": "147-170",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 8,
+      "examName": "TNPSC Combined Civil Services / Group 4 2018",
+      "code": "CCSFT",
+      "pages": "171-195",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 9,
+      "examName": "TNPSC Group 2A General Tamil 2016 (Series 1)",
+      "code": "G2AT/16",
+      "pages": "196-219",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 10,
+      "examName": "TNPSC Group 2A General Tamil 2016 (Series 2)",
+      "code": "G2AT/16",
+      "pages": "220-243",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 11,
+      "examName": "TNPSC Group 2A General Tamil 2016 (Series 3)",
+      "code": "G2AT/16",
+      "pages": "244-267",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 12,
+      "examName": "TNPSC Combined Exam / Assistant Agricultural Officer",
+      "code": "AJGST",
+      "pages": "268-343",
+      "totalPages": 76,
+      "section": "Full Multi-Section Examination (Tamil + GK + Aptitude)",
+      "questionsCount": 200,
+      "sectionsBreakdown": [
+        {
+          "section": "பொதுத்தமிழ் (General Tamil)",
+          "questionsCount": 100,
+          "questionRange": "1 - 100",
+          "pages": "268-292"
+        },
+        {
+          "section": "பொது அறிவு (General Knowledge / General Studies)",
+          "questionsCount": 75,
+          "questionRange": "101 - 175",
+          "pages": "293-330"
+        },
+        {
+          "section": "கணிதம் மற்றும் திறனறிவு (Maths & Aptitude)",
+          "questionsCount": 25,
+          "questionRange": "176 - 200",
+          "pages": "331-343"
+        }
+      ]
+    },
+    {
+      "paperNo": 13,
+      "examName": "TNPSC General Tamil Exam",
+      "code": "GT112",
+      "pages": "344-367",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 14,
+      "examName": "TNPSC Group 4 General Tamil",
+      "code": "JSTT3",
+      "pages": "369-392",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 15,
+      "examName": "TNPSC General Tamil Exam",
+      "code": "VTN1",
+      "pages": "393-417",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 16,
+      "examName": "TNPSC General Tamil Exam",
+      "code": "SSGT",
+      "pages": "418-442",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 17,
+      "examName": "TNPSC VAO / General Tamil 2019",
+      "code": "VGT19",
+      "pages": "443-461",
+      "totalPages": 19,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 80,
+      "questionRange": "1 - 80"
+    },
+    {
+      "paperNo": 18,
+      "examName": "TNPSC Executive Officer Grade 3 Tamil 2017",
+      "code": "EO3GT/17",
+      "pages": "462-485",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 19,
+      "examName": "TNPSC Combined Civil Services Group 4 2019",
+      "code": "CCS4T/19",
+      "pages": "486-509",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 20,
+      "examName": "TNPSC General Tamil Exam Paper",
+      "code": "GT-SET-20",
+      "pages": "510-534",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 21,
+      "examName": "TNPSC Junior Assistant / Group 4 2017",
+      "code": "JGST/17",
+      "pages": "535-558",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 22,
+      "examName": "TNPSC Executive Officer Grade 3 Tamil",
+      "code": "EO3GT",
+      "pages": "559-583",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 23,
+      "examName": "TNPSC General Tamil Exam Paper",
+      "code": "GT-SET-23",
+      "pages": "584-608",
+      "totalPages": 25,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    },
+    {
+      "paperNo": 24,
+      "examName": "TNPSC General Tamil Exam 2016",
+      "code": "AJGST/16",
+      "pages": "609-632",
+      "totalPages": 24,
+      "section": "பொதுத்தமிழ் (General Tamil)",
+      "questionsCount": 100,
+      "questionRange": "1 - 100"
+    }
+  ]
+}
