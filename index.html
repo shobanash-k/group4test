@@ -659,13 +659,31 @@
   <div class="pyq-modal-backdrop hidden" id="pyq-practice-modal" role="dialog" aria-modal="true" aria-labelledby="pyq-practice-modal-title">
     <div class="pyq-modal-container">
       <div class="pyq-modal-header">
-        <h3 id="pyq-practice-modal-title">முந்தைய தேர்வு வினாக்கள் மாதிரிப் பயிற்சி</h3>
+        <div class="pyq-modal-header-text">
+          <h3 id="pyq-practice-modal-title">முந்தைய தேர்வு வினாக்கள் மாதிரிப் பயிற்சி</h3>
+          <span class="pyq-modal-subtitle" id="pyq-practice-modal-subtitle">10 அதிகாரப்பூர்வ மாதிரி வினாக்கள்</span>
+        </div>
         <button type="button" class="drawer-close-btn" id="pyq-modal-close-btn" aria-label="மூடு">✕</button>
+      </div>
+
+      <!-- Practice Modal Subbar: Progress, Score & Navigator Palette -->
+      <div class="pyq-modal-subbar">
+        <div class="pyq-modal-progress">
+          <div class="pyq-modal-progress-bar" id="pyq-modal-progress-bar" style="width: 0%"></div>
+        </div>
+        <div class="pyq-modal-score-line">
+          <span class="pyq-score-item" id="pyq-live-score-badge">மதிப்பெண்: <strong id="pyq-score-val">0</strong></span>
+          <span class="pyq-score-item" id="pyq-live-progress-badge">நிறைவு: <strong id="pyq-progress-val">0 / 10</strong></span>
+          <button type="button" class="btn btn-outline btn-xs" id="pyq-modal-reset-btn">🔄 மீண்டும் தொடங்கு</button>
+        </div>
+        <div class="pyq-modal-nav-palette" id="pyq-modal-nav-palette" aria-label="வினா பட்டியல்">
+          <!-- 10 circular/rounded buttons rendered dynamically -->
+        </div>
       </div>
 
       <div class="pyq-modal-body">
         <div class="pyq-practice-card-head">
-          <span class="q-number-badge" id="pyq-practice-counter">கேள்வி 1 / 12</span>
+          <span class="q-number-badge" id="pyq-practice-counter">கேள்வி 1 / 10</span>
           <div class="q-tags">
             <span class="q-diff-tag" id="pyq-practice-subject">பொதுத்தமிழ்</span>
             <span class="q-topic-tag" id="pyq-practice-exam">TNPSC Group 4</span>
@@ -681,11 +699,14 @@
 
         <!-- Instant Validation Feedback Box -->
         <div class="pyq-feedback-panel hidden" id="pyq-practice-feedback" aria-live="polite"></div>
+
+        <!-- Completion Summary (displayed when test is completed or requested) -->
+        <div class="pyq-practice-summary hidden" id="pyq-practice-summary"></div>
       </div>
 
       <div class="pyq-modal-footer">
         <button type="button" class="btn btn-outline btn-sm" id="pyq-prev-q-btn">← முந்தைய கேள்வி</button>
-        <span class="quiz-footer-hint">விடையைத் தேர்ந்தெடுத்து அதிகாரப்பூர்வ விடையைச் சரிபார்க்கவும்</span>
+        <span class="quiz-footer-hint" id="pyq-footer-hint">விடையைத் தேர்ந்தெடுத்து அதிகாரப்பூர்வ விடையைச் சரிபார்க்கவும்</span>
         <button type="button" class="btn btn-primary btn-sm" id="pyq-next-q-btn">அடுத்த கேள்வி →</button>
       </div>
     </div>

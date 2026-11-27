@@ -577,3 +577,371 @@
   gap: 1rem;
 }
 
+/* Modal Header Text & Subtitle */
+.pyq-modal-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pyq-modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* PYQ Modal Subbar: Progress, Score & Palette */
+.pyq-modal-subbar {
+  background: var(--surface-warm);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pyq-modal-progress {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.pyq-modal-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+  transition: width 0.3s ease;
+}
+
+.pyq-modal-score-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.pyq-modal-score-line strong {
+  color: var(--primary);
+}
+
+/* Question Palette */
+.pyq-modal-nav-palette {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px;
+  scrollbar-width: thin;
+}
+
+.pyq-palette-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.pyq-palette-btn:hover {
+  border-color: var(--primary);
+  background: var(--surface-warm);
+}
+
+.pyq-palette-btn.btn-active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+  font-weight: 800;
+}
+
+.pyq-palette-btn.btn-correct {
+  background: var(--success);
+  border-color: var(--success);
+  color: #FFFFFF;
+}
+
+.pyq-palette-btn.btn-wrong {
+  background: var(--error);
+  border-color: var(--error);
+  color: #FFFFFF;
+}
+
+.pyq-palette-btn.btn-unanswered {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ==================== MOBILE & TABLET RESPONSIVENESS ==================== */
+
+@media (max-width: 768px) {
+  /* Homepage PYQ Banner */
+  .pyq-home-banner {
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .pyq-banner-title {
+    font-size: 1.2rem;
+  }
+
+  /* Dedicated View Hero Banner */
+  .pyq-hero-banner {
+    padding: 1.25rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pyq-hero-head {
+    gap: 0.85rem;
+  }
+
+  .pyq-hero-icon {
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+  }
+
+  .pyq-hero-title {
+    font-size: 1.35rem;
+  }
+
+  .pyq-hero-desc {
+    font-size: 0.92rem;
+  }
+
+  .pyq-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .pyq-stat-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .pyq-stat-card .stat-val {
+    font-size: 1.35rem;
+  }
+
+  /* Section Tabs - Horizontally scrollable without multi-row wrap */
+  .pyq-section-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding-bottom: 6px;
+    margin-bottom: 1rem;
+    scrollbar-width: none;
+  }
+
+  .pyq-section-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pyq-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  /* Filter Controls & Search Box */
+  .pyq-filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .pyq-search-box {
+    width: 100%;
+  }
+
+  .pyq-search-box input {
+    min-width: 0;
+    width: 100%;
+    font-size: 0.92rem;
+  }
+
+  .pyq-filter-summary {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Papers Grid: 1 column on mobile */
+  .pyq-papers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pyq-paper-card {
+    padding: 1.15rem 1rem;
+  }
+
+  .pyq-card-badge-row {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .pyq-card-title {
+    font-size: 1.1rem;
+  }
+
+  .pyq-card-pills {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .pyq-card-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Practice Modal: Full-screen on mobile */
+  .pyq-modal-backdrop {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .pyq-modal-container {
+    width: 100vw;
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pyq-modal-header {
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .pyq-modal-header h3 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .pyq-modal-subbar {
+    padding: 0.65rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .pyq-palette-btn {
+    min-width: 30px;
+    height: 30px;
+    font-size: 0.82rem;
+  }
+
+  .pyq-modal-body {
+    padding: 1rem;
+    gap: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pyq-practice-q-text {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .pyq-opt-btn {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.92rem;
+    gap: 0.75rem;
+  }
+
+  .pyq-opt-btn .opt-letter {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .pyq-modal-footer {
+    padding: 0.65rem 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  .pyq-modal-footer .btn {
+    flex: 1;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+
+  .pyq-modal-footer .quiz-footer-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pyq-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pyq-hero-title {
+    font-size: 1.2rem;
+  }
+
+  .pyq-hero-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pyq-banner-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pyq-banner-title-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pyq-banner-pills {
+    width: 100%;
+  }
+
+  .pyq-stat-pill {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .pyq-opt-btn {
+    font-size: 0.88rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .pyq-palette-btn {
+    min-width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}
+

@@ -80,9 +80,25 @@
   .header-nav {
     order: 3;
     width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 4px;
     -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .header-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-nav .nav-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 7px 11px;
   }
 
   .hero-card {

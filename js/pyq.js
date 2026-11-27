@@ -1,6 +1,8 @@
 /* ==========================================================================
    pyq.js – Previous Exam Questions (முந்தைய தேர்வு வினாக்கள்) Controller
-   Independent, modular controller that does not touch existing code
+   Independent, modular controller that does not touch existing subjects
+   Features: 10 authentic questions per paper, numbered palette navigator,
+             live score & progress bar, instant answer validation, responsive UI
    ========================================================================== */
 
 (function (window) {
@@ -12,7 +14,7 @@
     practiceIndex: 0,
     practiceQuestions: [],
     selectedAnswers: {}, // { [qId]: optionIndex }
-    currentExamFilter: 'all'
+    currentPaper: null
   };
 
   function escapeHtml(str) {
@@ -92,7 +94,8 @@
       card.className = 'pyq-paper-card';
 
       const padNum = String(paper.paperNo).padStart(2, '0');
-      const isComposite = paper.sectionKey === 'composite';
+      const paperQuestions = (data.questionsByPaper && data.questionsByPaper[paper.paperNo]) || [];
+      const practiceCount = paperQuestions.length || 10;
 
       card.innerHTML = `
         <div class="pyq-card-head">
@@ -118,7 +121,10 @@
 
           <div class="pyq-card-pills">
             <span class="pyq-pill pyq-pill-accent">
-              <span class="pill-dot"></span> ${paper.questionsCount} அசல் வினாக்கள்
+              <span class="pill-dot"></span> ${practiceCount} பயிற்சி வினாக்கள்
+            </span>
+            <span class="pyq-pill pyq-pill-muted">
+              அசல் தேர்வுத்தாள்: ${paper.questionsCount} வினாக்கள்
             </span>
             <span class="pyq-pill pyq-pill-success">
               ✓ அரசு விடைக்குறிப்புடன்
@@ -128,7 +134,7 @@
 
         <div class="pyq-card-actions">
           <button type="button" class="btn btn-primary btn-sm pyq-practice-btn" data-paper-no="${paper.paperNo}">
-            மாதிரி வினாக்களைப் பயிற்சி செய் →
+            பயிற்சி செய் (${practiceCount} வினாக்கள்) →
           </button>
         </div>
       `;
@@ -177,12 +183,13 @@
       });
     }
 
-    // Practice modal controls
+    // Practice modal close
     const modalCloseBtn = document.getElementById('pyq-modal-close-btn');
     if (modalCloseBtn) {
       modalCloseBtn.addEventListener('click', closePracticeModal);
     }
 
+    // Prev / Next Question buttons
     const prevQBtn = document.getElementById('pyq-prev-q-btn');
     if (prevQBtn) {
       prevQBtn.addEventListener('click', () => {
@@ -203,13 +210,49 @@
       });
     }
 
-    // Launch all samples practice
+    // Reset test button
+    const modalResetBtn = document.getElementById('pyq-modal-reset-btn');
+    if (modalResetBtn) {
+      modalResetBtn.addEventListener('click', resetCurrentPractice);
+    }
+
+    // Launch all samples practice from hero banner
     const launchAllBtn = document.getElementById('pyq-launch-all-practice');
     if (launchAllBtn) {
       launchAllBtn.addEventListener('click', () => {
         openPracticeModal(null);
       });
     }
+
+    // Close on backdrop click
+    const modalBackdrop = document.getElementById('pyq-practice-modal');
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) {
+          closePracticeModal();
+        }
+      });
+    }
+
+    // Keyboard navigation (Arrow keys)
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('pyq-practice-modal');
+      if (!modal || modal.classList.contains('hidden')) return;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        if (PyqState.practiceIndex < PyqState.practiceQuestions.length - 1) {
+          PyqState.practiceIndex++;
+          renderCurrentPracticeQuestion();
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        if (PyqState.practiceIndex > 0) {
+          PyqState.practiceIndex--;
+          renderCurrentPracticeQuestion();
+        }
+      } else if (e.key === 'Escape') {
+        closePracticeModal();
+      }
+    });
   }
 
   /* ==================== PRACTICE MODAL / VIEWER ==================== */
@@ -219,16 +262,22 @@
 
     let questions = [];
     let title = 'முந்தைய தேர்வு அசல் வினாக்கள் பயிற்சி';
+    let subtitle = '10 அதிகாரப்பூர்வ மாதிரி வினாக்கள்';
+
+    PyqState.currentPaper = paperFilter;
 
     if (paperFilter && data.questionsByPaper && data.questionsByPaper[paperFilter.paperNo]) {
       questions = data.questionsByPaper[paperFilter.paperNo];
-      title = `${paperFilter.examName} (${paperFilter.code}) – அசல் தேர்வு வினாக்கள்`;
+      title = `${paperFilter.examName} (${paperFilter.code})`;
+      subtitle = `தேர்வுத்தாள் ${String(paperFilter.paperNo).padStart(2, '0')} • ${questions.length} மாதிரி வினாக்கள் • TNPSC அதிகாரப்பூர்வ விடைக்குறிப்பு`;
     } else if (paperFilter) {
-      title = `${paperFilter.examName} (${paperFilter.code}) – அசல் தேர்வு வினாக்கள்`;
+      title = `${paperFilter.examName} (${paperFilter.code})`;
       questions = (data.allQuestions || []).filter((q) => q.paperNo === paperFilter.paperNo);
+      subtitle = `தேர்வுத்தாள் ${String(paperFilter.paperNo).padStart(2, '0')} • ${questions.length} மாதிரி வினாக்கள்`;
     } else {
       questions = data.allQuestions || [];
       title = 'முந்தைய தேர்வு அசல் வினாக்கள் – அனைத்துத் தேர்வு மாதிரித் தொகுப்பு';
+      subtitle = `மொத்தம் ${questions.length} அசல் வினாக்கள் அடங்கிய முழுத் தொகுப்பு`;
     }
 
     if (!questions || questions.length === 0) {
@@ -240,17 +289,114 @@
     PyqState.selectedAnswers = {};
 
     const modalTitle = document.getElementById('pyq-practice-modal-title');
+    const modalSubtitle = document.getElementById('pyq-practice-modal-subtitle');
     if (modalTitle) modalTitle.textContent = title;
+    if (modalSubtitle) modalSubtitle.textContent = subtitle;
+
+    const summaryBox = document.getElementById('pyq-practice-summary');
+    if (summaryBox) {
+      summaryBox.classList.add('hidden');
+      summaryBox.innerHTML = '';
+    }
 
     const modal = document.getElementById('pyq-practice-modal');
-    if (modal) modal.classList.remove('hidden');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
 
+    renderNavPalette();
     renderCurrentPracticeQuestion();
+    updateScoreAndProgress();
   }
 
   function closePracticeModal() {
     const modal = document.getElementById('pyq-practice-modal');
-    if (modal) modal.classList.add('hidden');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function resetCurrentPractice() {
+    PyqState.selectedAnswers = {};
+    PyqState.practiceIndex = 0;
+    const summaryBox = document.getElementById('pyq-practice-summary');
+    if (summaryBox) {
+      summaryBox.classList.add('hidden');
+      summaryBox.innerHTML = '';
+    }
+    renderNavPalette();
+    renderCurrentPracticeQuestion();
+    updateScoreAndProgress();
+  }
+
+  function renderNavPalette() {
+    const palette = document.getElementById('pyq-modal-nav-palette');
+    if (!palette) return;
+
+    const questions = PyqState.practiceQuestions;
+    palette.innerHTML = '';
+
+    questions.forEach((q, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pyq-palette-btn';
+      btn.textContent = idx + 1;
+      btn.setAttribute('aria-label', `கேள்வி எண் ${idx + 1}`);
+
+      const answer = PyqState.selectedAnswers[q.id];
+      if (answer !== undefined) {
+        if (answer === q.correctAnswer) {
+          btn.classList.add('btn-correct');
+        } else {
+          btn.classList.add('btn-wrong');
+        }
+      } else {
+        btn.classList.add('btn-unanswered');
+      }
+
+      if (idx === PyqState.practiceIndex) {
+        btn.classList.add('btn-active');
+      }
+
+      btn.addEventListener('click', () => {
+        PyqState.practiceIndex = idx;
+        renderCurrentPracticeQuestion();
+      });
+
+      palette.appendChild(btn);
+    });
+  }
+
+  function updateScoreAndProgress() {
+    const questions = PyqState.practiceQuestions;
+    const total = questions.length;
+    let correctCount = 0;
+    let answeredCount = 0;
+
+    questions.forEach((q) => {
+      const ans = PyqState.selectedAnswers[q.id];
+      if (ans !== undefined) {
+        answeredCount++;
+        if (ans === q.correctAnswer) {
+          correctCount++;
+        }
+      }
+    });
+
+    const scoreValEl = document.getElementById('pyq-score-val');
+    const progressValEl = document.getElementById('pyq-progress-val');
+    const progressBar = document.getElementById('pyq-modal-progress-bar');
+
+    if (scoreValEl) scoreValEl.textContent = `${correctCount} / ${total}`;
+    if (progressValEl) progressValEl.textContent = `${answeredCount} / ${total}`;
+    if (progressBar) {
+      const percent = total > 0 ? (answeredCount / total) * 100 : 0;
+      progressBar.style.width = `${percent}%`;
+    }
+
+    renderNavPalette();
   }
 
   function renderCurrentPracticeQuestion() {
@@ -277,7 +423,13 @@
     if (qText) qText.textContent = q.question;
 
     if (prevBtn) prevBtn.disabled = qIndex === 0;
-    if (nextBtn) nextBtn.disabled = qIndex === questions.length - 1;
+    if (nextBtn) {
+      if (qIndex === questions.length - 1) {
+        nextBtn.textContent = 'அடுத்த கேள்வி →';
+      } else {
+        nextBtn.textContent = 'அடுத்த கேள்வி →';
+      }
+    }
 
     // Render Options
     const optLetters = ['A', 'B', 'C', 'D'];
@@ -314,6 +466,7 @@
         if (isAnswered) return;
         PyqState.selectedAnswers[q.id] = optIdx;
         renderCurrentPracticeQuestion();
+        updateScoreAndProgress();
       });
 
       optionsContainer.appendChild(btn);
@@ -343,13 +496,20 @@
       feedbackBox.classList.add('hidden');
       feedbackBox.innerHTML = '';
     }
+
+    // Scroll question text into view smoothly
+    const modalBody = document.querySelector('.pyq-modal-body');
+    if (modalBody) {
+      modalBody.scrollTop = 0;
+    }
   }
 
   // Export module
   window.TNPSC_PYQ = {
     init: init,
     openPracticeModal: openPracticeModal,
-    renderPaperCards: renderPaperCards
+    renderPaperCards: renderPaperCards,
+    resetCurrentPractice: resetCurrentPractice
   };
 
   // Auto-init when DOM ready
@@ -359,4 +519,3 @@
     init();
   }
 })(window);
-
